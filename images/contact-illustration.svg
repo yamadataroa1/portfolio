@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 220" fill="none">
+  <defs>
+    <linearGradient id="accentG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c6af7"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="nodeG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1b3a"/>
+      <stop offset="100%" stop-color="#141428"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c6af7" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7c6af7" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="nodeGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="centerGlowF" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="20" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Center glow -->
+  <ellipse cx="280" cy="110" rx="120" ry="80" fill="url(#centerGlow)" filter="url(#centerGlowF)"/>
+
+  <!-- === Connection lines (dashed) === -->
+  <!-- Center to left nodes -->
+  <line x1="248" y1="110" x2="148" y2="70"  stroke="#7c6af7" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.5"/>
+  <line x1="248" y1="110" x2="148" y2="150" stroke="#7c6af7" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.5"/>
+  <line x1="248" y1="110" x2="72"  cy1="110" x2="72" y2="110" stroke="#7c6af7" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.5"/>
+
+  <!-- Center to right nodes -->
+  <line x1="312" y1="110" x2="412" y2="70"  stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.5"/>
+  <line x1="312" y1="110" x2="412" y2="150" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.5"/>
+  <line x1="312" y1="110" x2="488" y2="110" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.5"/>
+
+  <!-- Fix: redraw with correct x1 for center-left-middle -->
+  <line x1="248" y1="110" x2="72" y2="110" stroke="#7c6af7" stroke-width="1.2" stroke-dasharray="5 4" opacity="0.5"/>
+
+  <!-- === Center node: envelope / main contact === -->
+  <g filter="url(#nodeGlow)">
+    <rect x="226" y="80" width="108" height="60" rx="12" fill="url(#nodeG)" stroke="url(#accentG)" stroke-width="1.5"/>
+    <!-- Envelope shape -->
+    <rect x="238" y="92" width="84" height="52" rx="6" fill="#1a1640" stroke="#7c6af7" stroke-width="1" opacity="0.8"/>
+    <!-- Envelope flap V shape -->
+    <path d="M238,96 L280,120 L322,96" stroke="#a78bfa" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <!-- Envelope bottom lines -->
+    <line x1="248" y1="128" x2="312" y2="128" stroke="#3d3570" stroke-width="1" opacity="0.6"/>
+    <line x1="248" y1="136" x2="295" y2="136" stroke="#3d3570" stroke-width="1" opacity="0.4"/>
+  </g>
+
+  <!-- === Left nodes === -->
+
+  <!-- Twitter / X node - top left -->
+  <g filter="url(#nodeGlow)">
+    <circle cx="114" cy="58" r="34" fill="url(#nodeG)" stroke="#e8e8f0" stroke-width="1.2" opacity="0.9"/>
+    <text x="114" y="54" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="#e8e8f0">𝕏</text>
+    <text x="114" y="70" text-anchor="middle" font-family="monospace" font-size="9" fill="#6b6b8a">Twitter</text>
+  </g>
+  <line x1="148" y1="70" x2="114" y2="70" stroke="#e8e8f0" stroke-width="1" stroke-dasharray="4 3" opacity="0.2"/>
+
+  <!-- Email node - left middle -->
+  <g filter="url(#nodeGlow)">
+    <circle cx="46" cy="110" r="34" fill="url(#nodeG)" stroke="#4ade80" stroke-width="1.2"/>
+    <text x="46" y="105" text-anchor="middle" font-family="monospace" font-size="18" fill="#4ade80">✉</text>
+    <text x="46" y="120" text-anchor="middle" font-family="monospace" font-size="9" fill="#6b6b8a">Email</text>
+  </g>
+
+  <!-- GitHub node - bottom left -->
+  <g filter="url(#nodeGlow)">
+    <circle cx="114" cy="162" r="34" fill="url(#nodeG)" stroke="#6b6b8a" stroke-width="1.2"/>
+    <text x="114" y="157" text-anchor="middle" font-family="monospace" font-size="16" fill="#a8a8c8">⬡</text>
+    <text x="114" y="171" text-anchor="middle" font-family="monospace" font-size="9" fill="#6b6b8a">GitHub</text>
+  </g>
+  <line x1="148" y1="150" x2="114" y2="150" stroke="#6b6b8a" stroke-width="1" stroke-dasharray="4 3" opacity="0.2"/>
+
+  <!-- === Right nodes === -->
+
+  <!-- Blog node - top right -->
+  <g filter="url(#nodeGlow)">
+    <circle cx="446" cy="58" r="34" fill="url(#nodeG)" stroke="#fbbf24" stroke-width="1.2"/>
+    <text x="446" y="53" text-anchor="middle" font-family="monospace" font-size="18" fill="#fbbf24">✍</text>
+    <text x="446" y="68" text-anchor="middle" font-family="monospace" font-size="9" fill="#6b6b8a">Blog</text>
+  </g>
+  <line x1="412" y1="70" x2="446" y2="70" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4 3" opacity="0.2"/>
+
+  <!-- Notion/Portfolio node - right middle -->
+  <g filter="url(#nodeGlow)">
+    <circle cx="514" cy="110" r="34" fill="url(#nodeG)" stroke="#7c6af7" stroke-width="1.2"/>
+    <text x="514" y="105" text-anchor="middle" font-family="monospace" font-size="16" fill="#a78bfa">◈</text>
+    <text x="514" y="120" text-anchor="middle" font-family="monospace" font-size="9" fill="#6b6b8a">Portfolio</text>
+  </g>
+
+  <!-- LinkedIn node - bottom right -->
+  <g filter="url(#nodeGlow)">
+    <circle cx="446" cy="162" r="34" fill="url(#nodeG)" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="446" y="157" text-anchor="middle" font-family="monospace" font-size="15" font-weight="bold" fill="#60a5fa">in</text>
+    <text x="446" y="171" text-anchor="middle" font-family="monospace" font-size="9" fill="#6b6b8a">LinkedIn</text>
+  </g>
+  <line x1="412" y1="150" x2="446" y2="150" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4 3" opacity="0.2"/>
+
+  <!-- Small floating dots -->
+  <circle cx="190" cy="30"  r="2.5" fill="#7c6af7" opacity="0.45"/>
+  <circle cx="370" cy="28"  r="2"   fill="#a78bfa" opacity="0.4"/>
+  <circle cx="165" cy="195" r="2"   fill="#7c6af7" opacity="0.4"/>
+  <circle cx="395" cy="193" r="2.5" fill="#a78bfa" opacity="0.38"/>
+  <circle cx="280" cy="12"  r="3"   fill="#7c6af7" opacity="0.4"/>
+  <circle cx="280" cy="208" r="3"   fill="#a78bfa" opacity="0.35"/>
+</svg>

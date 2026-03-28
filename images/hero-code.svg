@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 440" fill="none">
+  <defs>
+    <linearGradient id="winBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16162a"/>
+      <stop offset="100%" stop-color="#0d0d1e"/>
+    </linearGradient>
+    <linearGradient id="headerBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e1b3a"/>
+      <stop offset="100%" stop-color="#181630"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c6af7"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="winGlow" x="-12%" y="-12%" width="124%" height="124%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="badgeGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Window shadow/glow -->
+  <rect x="68" y="66" width="424" height="308" rx="14" fill="#7c6af7" opacity="0.1" filter="url(#winGlow)"/>
+
+  <!-- Terminal window frame -->
+  <rect x="72" y="70" width="416" height="300" rx="12" fill="url(#winBg)" stroke="#28265a" stroke-width="1.5"/>
+
+  <!-- Header bar -->
+  <rect x="72" y="70" width="416" height="40" rx="12" fill="url(#headerBg)"/>
+  <rect x="72" y="94" width="416" height="16" fill="url(#headerBg)"/>
+  <line x1="72" y1="110" x2="488" y2="110" stroke="#28265a" stroke-width="1"/>
+
+  <!-- Traffic lights -->
+  <circle cx="102" cy="90" r="6" fill="#ff5f57"/>
+  <circle cx="122" cy="90" r="6" fill="#febc2e"/>
+  <circle cx="142" cy="90" r="6" fill="#28c840"/>
+
+  <!-- Window title -->
+  <text x="280" y="95" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#6b6b8a">~/portfolio — node</text>
+
+  <!-- Code area -->
+
+  <!-- Line: prompt + command -->
+  <text x="98" y="138" font-family="'Courier New', monospace" font-size="13" fill="#a78bfa">❯</text>
+  <text x="114" y="138" font-family="'Courier New', monospace" font-size="13" fill="#555577"> node app.js</text>
+
+  <!-- Blank spacing -->
+
+  <!-- Line: const engineer = { -->
+  <text x="98" y="162" font-family="'Courier New', monospace" font-size="13">
+    <tspan fill="#c084fc">const </tspan><tspan fill="#7dd3fc">engineer</tspan><tspan fill="#e8e8f0"> = {</tspan>
+  </text>
+
+  <!-- Line: name -->
+  <text x="98" y="183" font-family="'Courier New', monospace" font-size="13">
+    <tspan fill="#e8e8f0">  </tspan><tspan fill="#4ade80">name</tspan><tspan fill="#e8e8f0">:  </tspan><tspan fill="#fbbf24">"</tspan><tspan fill="#fbbf24" font-family="'Noto Sans JP', 'Courier New', monospace">山田太郎</tspan><tspan fill="#fbbf24">"</tspan><tspan fill="#e8e8f0">,</tspan>
+  </text>
+
+  <!-- Line: role -->
+  <text x="98" y="204" font-family="'Courier New', monospace" font-size="13">
+    <tspan fill="#e8e8f0">  </tspan><tspan fill="#4ade80">role</tspan><tspan fill="#e8e8f0">:  </tspan><tspan fill="#fbbf24">"Freelance Engineer"</tspan><tspan fill="#e8e8f0">,</tspan>
+  </text>
+
+  <!-- Line: stack -->
+  <text x="98" y="225" font-family="'Courier New', monospace" font-size="13">
+    <tspan fill="#e8e8f0">  </tspan><tspan fill="#4ade80">stack</tspan><tspan fill="#e8e8f0">: [</tspan><tspan fill="#fbbf24">"JS"</tspan><tspan fill="#e8e8f0">, </tspan><tspan fill="#fbbf24">"Python"</tspan><tspan fill="#e8e8f0">, </tspan><tspan fill="#fbbf24">"AWS"</tspan><tspan fill="#e8e8f0">],</tspan>
+  </text>
+
+  <!-- Line: ai -->
+  <text x="98" y="246" font-family="'Courier New', monospace" font-size="13">
+    <tspan fill="#e8e8f0">  </tspan><tspan fill="#4ade80">ai</tspan><tspan fill="#e8e8f0">:    </tspan><tspan fill="#fb923c">true</tspan><tspan fill="#e8e8f0">,</tspan>
+  </text>
+
+  <!-- Line: closing brace -->
+  <text x="98" y="267" font-family="'Courier New', monospace" font-size="13" fill="#e8e8f0">}</text>
+
+  <!-- Line: comment -->
+  <text x="98" y="295" font-family="'Courier New', monospace" font-size="12" fill="#4a4a6a">// 今日もコードを書いて、世界をよくする</text>
+
+  <!-- Blinking cursor line -->
+  <text x="98" y="318" font-family="'Courier New', monospace" font-size="13" fill="#a78bfa">❯ </text>
+  <rect x="115" y="305" width="8" height="15" rx="1" fill="#7c6af7" opacity="0.85"/>
+
+  <!-- === Floating tech badges === -->
+
+  <!-- JavaScript - top left -->
+  <g filter="url(#badgeGlow)">
+    <circle cx="44" cy="106" r="30" fill="#111122" stroke="#f7df1e" stroke-width="1.5"/>
+    <text x="44" y="101" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#f7df1e">JS</text>
+    <text x="44" y="115" text-anchor="middle" font-family="monospace" font-size="8" fill="#888899">JavaScript</text>
+  </g>
+  <line x1="73" y1="106" x2="72" y2="110" stroke="#f7df1e" stroke-width="1" opacity="0.35" stroke-dasharray="4 3"/>
+
+  <!-- Python - top right -->
+  <g filter="url(#badgeGlow)">
+    <circle cx="516" cy="106" r="30" fill="#111122" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="516" y="99" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="bold" fill="#60a5fa">Py</text>
+    <text x="516" y="112" text-anchor="middle" font-family="monospace" font-size="8" fill="#888899">Python</text>
+    <text x="516" y="123" text-anchor="middle" font-family="monospace" font-size="10" fill="#3b82f6">🐍</text>
+  </g>
+  <line x1="487" y1="106" x2="488" y2="110" stroke="#3b82f6" stroke-width="1" opacity="0.35" stroke-dasharray="4 3"/>
+
+  <!-- AWS - bottom left -->
+  <g filter="url(#badgeGlow)">
+    <circle cx="44" cy="334" r="30" fill="#111122" stroke="#f97316" stroke-width="1.5"/>
+    <text x="44" y="329" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" font-weight="bold" fill="#fb923c">AWS</text>
+    <text x="44" y="342" text-anchor="middle" font-family="monospace" font-size="8" fill="#888899">Cloud</text>
+    <text x="44" y="353" text-anchor="middle" font-family="monospace" font-size="10" fill="#f97316">☁️</text>
+  </g>
+  <line x1="73" y1="334" x2="72" y2="330" stroke="#f97316" stroke-width="1" opacity="0.35" stroke-dasharray="4 3"/>
+
+  <!-- Claude AI - bottom right -->
+  <g filter="url(#badgeGlow)">
+    <circle cx="516" cy="334" r="30" fill="#111122" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="516" y="326" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="#a78bfa">Claude</text>
+    <text x="516" y="338" text-anchor="middle" font-family="'Courier New', monospace" font-size="10" fill="#7c6af7">AI</text>
+    <text x="516" y="350" text-anchor="middle" font-family="'Noto Sans JP', monospace" font-size="8" fill="#666688">活用</text>
+  </g>
+  <line x1="487" y1="334" x2="488" y2="330" stroke="#a78bfa" stroke-width="1" opacity="0.35" stroke-dasharray="4 3"/>
+
+  <!-- Decorative dots top/bottom center -->
+  <circle cx="280" cy="34" r="3" fill="#7c6af7" opacity="0.5"/>
+  <circle cx="260" cy="22" r="2" fill="#a78bfa" opacity="0.4"/>
+  <circle cx="300" cy="20" r="2.5" fill="#7c6af7" opacity="0.38"/>
+  <line x1="260" y1="22" x2="280" y2="34" stroke="#7c6af7" stroke-width="1" opacity="0.2"/>
+  <line x1="300" y1="20" x2="280" y2="34" stroke="#7c6af7" stroke-width="1" opacity="0.2"/>
+
+  <circle cx="280" cy="416" r="3" fill="#7c6af7" opacity="0.4"/>
+  <circle cx="260" cy="428" r="2" fill="#a78bfa" opacity="0.35"/>
+  <circle cx="300" cy="430" r="2" fill="#7c6af7" opacity="0.3"/>
+</svg>

@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c6af7"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="g2" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#2d2460"/>
+      <stop offset="100%" stop-color="#0d0d1f"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="50%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#3d2b7a" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#0d0d1f" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="c1">
+      <circle cx="200" cy="200" r="175"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer soft glow -->
+  <circle cx="200" cy="200" r="195" fill="#7c6af7" opacity="0.04"/>
+  <circle cx="200" cy="200" r="185" fill="#7c6af7" opacity="0.05"/>
+
+  <!-- Main background -->
+  <circle cx="200" cy="200" r="175" fill="url(#g2)"/>
+
+  <!-- Lower glow -->
+  <circle cx="200" cy="260" r="140" fill="url(#g3)"/>
+
+  <!-- === Clipped person illustration === -->
+  <g clip-path="url(#c1)">
+
+    <!-- Body / clothing -->
+    <path d="M0,440 L0,308 Q80,262 142,256 Q164,268 200,268 Q236,268 258,256 Q320,262 400,308 L400,440 Z"
+          fill="#1a1640"/>
+
+    <!-- Jacket lapels -->
+    <path d="M172,262 L200,258 L228,262 L220,298 L200,284 L180,298 Z" fill="#f0edff"/>
+
+    <!-- Tie knot -->
+    <path d="M197,266 L200,258 L203,266 L200,282 Z" fill="#4c3fcf"/>
+    <!-- Tie body -->
+    <path d="M194,270 L200,336 L206,270 Z" fill="url(#g1)"/>
+
+    <!-- Neck -->
+    <rect x="185" y="232" width="30" height="32" rx="8" fill="#e8e0ff"/>
+
+    <!-- Head -->
+    <ellipse cx="200" cy="176" rx="68" ry="72" fill="#e8e0ff"/>
+
+    <!-- Ears -->
+    <ellipse cx="131" cy="180" rx="11" ry="14" fill="#e8e0ff"/>
+    <ellipse cx="269" cy="180" rx="11" ry="14" fill="#e8e0ff"/>
+    <!-- Ear inner shadow -->
+    <ellipse cx="132" cy="181" rx="5" ry="7" fill="#c4b5fd" opacity="0.4"/>
+    <ellipse cx="268" cy="181" rx="5" ry="7" fill="#c4b5fd" opacity="0.4"/>
+
+    <!-- Hair back layer -->
+    <ellipse cx="200" cy="114" rx="70" ry="28" fill="#1c1050"/>
+
+    <!-- Hair main -->
+    <path d="M132,150 Q133,92 200,89 Q267,92 268,150 Q256,114 200,111 Q144,114 132,150 Z"
+          fill="#2d1b69"/>
+
+    <!-- Hair side left -->
+    <path d="M132,150 L128,192 Q130,166 140,153 Z" fill="#2d1b69"/>
+    <!-- Hair side right -->
+    <path d="M268,150 L272,192 Q270,166 260,153 Z" fill="#2d1b69"/>
+
+    <!-- Hair front highlight -->
+    <path d="M160,106 Q180,96 200,93 Q182,104 176,118 Z" fill="#1c1050" opacity="0.7"/>
+    <path d="M200,93 Q220,96 240,106 Q226,102 224,116 Z" fill="#1c1050" opacity="0.5"/>
+
+    <!-- Eyebrows -->
+    <path d="M162,158 Q176,153 191,158" stroke="#3d2b7a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M209,158 Q224,153 238,158" stroke="#3d2b7a" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Eye whites -->
+    <ellipse cx="176" cy="175" rx="14" ry="12" fill="white"/>
+    <ellipse cx="224" cy="175" rx="14" ry="12" fill="white"/>
+
+    <!-- Iris -->
+    <circle cx="176" cy="175" r="9" fill="#2d1b69"/>
+    <circle cx="224" cy="175" r="9" fill="#2d1b69"/>
+
+    <!-- Pupil -->
+    <circle cx="176" cy="175" r="5.5" fill="#0a0520"/>
+    <circle cx="224" cy="175" r="5.5" fill="#0a0520"/>
+
+    <!-- Eye shine main -->
+    <circle cx="180" cy="171" r="3.5" fill="white" opacity="0.95"/>
+    <circle cx="228" cy="171" r="3.5" fill="white" opacity="0.95"/>
+
+    <!-- Eye shine secondary -->
+    <circle cx="173" cy="178" r="1.5" fill="white" opacity="0.5"/>
+    <circle cx="221" cy="178" r="1.5" fill="white" opacity="0.5"/>
+
+    <!-- Eyelash lines -->
+    <path d="M162,167 Q176,162 190,167" stroke="#2d1b69" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M210,167 Q224,162 238,167" stroke="#2d1b69" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+    <!-- Nose -->
+    <path d="M200,187 Q195,196 198,200 Q200,202 202,200 Q205,196 200,187"
+          stroke="#c4b5fd" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="197" cy="200" rx="3.5" ry="2" fill="#c4b5fd" opacity="0.45"/>
+    <ellipse cx="203" cy="200" rx="3.5" ry="2" fill="#c4b5fd" opacity="0.45"/>
+
+    <!-- Mouth -->
+    <path d="M186,212 Q200,223 214,212" stroke="#9d74e8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Cheek blush -->
+    <ellipse cx="155" cy="196" rx="16" ry="8" fill="#c084fc" opacity="0.2"/>
+    <ellipse cx="245" cy="196" rx="16" ry="8" fill="#c084fc" opacity="0.2"/>
+  </g>
+
+  <!-- Border ring -->
+  <circle cx="200" cy="200" r="175" fill="none" stroke="url(#g1)" stroke-width="2" opacity="0.7"/>
+  <circle cx="200" cy="200" r="171" fill="none" stroke="url(#g1)" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- === Decorative floating elements === -->
+  <!-- Top-left cluster -->
+  <circle cx="46" cy="66" r="7" fill="none" stroke="#7c6af7" stroke-width="1.5" opacity="0.55"/>
+  <circle cx="66" cy="44" r="4.5" fill="#7c6af7" opacity="0.4"/>
+  <circle cx="34" cy="48" r="2.5" fill="#a78bfa" opacity="0.45"/>
+  <line x1="46" y1="66" x2="66" y2="44" stroke="#7c6af7" stroke-width="1" opacity="0.3"/>
+  <line x1="46" y1="66" x2="34" y2="48" stroke="#7c6af7" stroke-width="1" opacity="0.2"/>
+
+  <!-- Top-right cluster -->
+  <circle cx="354" cy="60" r="9" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="336" cy="38" r="4" fill="#a78bfa" opacity="0.4"/>
+  <circle cx="368" cy="40" r="2.5" fill="#7c6af7" opacity="0.45"/>
+  <line x1="354" y1="60" x2="336" y2="38" stroke="#a78bfa" stroke-width="1" opacity="0.28"/>
+  <line x1="354" y1="60" x2="368" y2="40" stroke="#a78bfa" stroke-width="1" opacity="0.2"/>
+
+  <!-- Bottom-left cluster -->
+  <circle cx="38" cy="334" r="6" fill="#7c6af7" opacity="0.38"/>
+  <circle cx="54" cy="354" r="3.5" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.42"/>
+  <line x1="38" y1="334" x2="54" y2="354" stroke="#7c6af7" stroke-width="1" opacity="0.22"/>
+
+  <!-- Bottom-right cluster -->
+  <circle cx="364" cy="342" r="8" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="346" cy="362" r="4.5" fill="#7c6af7" opacity="0.35"/>
+  <line x1="364" y1="342" x2="346" y2="362" stroke="#a78bfa" stroke-width="1" opacity="0.22"/>
+
+  <!-- Scattered small dots -->
+  <circle cx="96" cy="28" r="2.5" fill="#7c6af7" opacity="0.5"/>
+  <circle cx="304" cy="22" r="2" fill="#a78bfa" opacity="0.45"/>
+  <circle cx="385" cy="148" r="2" fill="#7c6af7" opacity="0.4"/>
+  <circle cx="15" cy="176" r="2.5" fill="#a78bfa" opacity="0.4"/>
+  <circle cx="22" cy="270" r="2" fill="#7c6af7" opacity="0.35"/>
+  <circle cx="380" cy="282" r="2.5" fill="#a78bfa" opacity="0.35"/>
+  <circle cx="112" cy="376" r="2" fill="#7c6af7" opacity="0.3"/>
+  <circle cx="292" cy="380" r="2" fill="#a78bfa" opacity="0.3"/>
+
+  <!-- Subtle code decoration -->
+  <text x="14" y="210" font-family="monospace" font-size="20" fill="#7c6af7" opacity="0.18">{ }</text>
+  <text x="363" y="216" font-family="monospace" font-size="15" fill="#a78bfa" opacity="0.16">&lt;/&gt;</text>
+</svg>

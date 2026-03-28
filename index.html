@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>山田太郎 | フリーランスエンジニア</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ナビゲーション -->
+  <nav class="nav">
+    <div class="nav-logo">YAMADA TARO</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-label">Freelance Engineer</p>
+      <h1 class="hero-title">YAMADA<br /><span class="accent">TARO</span></h1>
+      <p class="hero-sub">技術と発信で、自分らしい働き方をつくるフリーランスエンジニア</p>
+      <div class="hero-btns">
+        <a href="#about" class="btn btn-primary">About me</a>
+        <a href="#skills" class="btn btn-outline">My Skills</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="images/hero-code.svg" alt="コードイラスト" class="hero-illustration" />
+    </div>
+    <div class="hero-bg">
+      <div class="grid-lines"></div>
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">01</span>
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <img src="images/avatar.svg" alt="山田太郎" class="about-avatar" />
+        </div>
+        <div class="about-text">
+          <h3>こんにちは、山田太郎です。</h3>
+          <p>
+            フリーランスエンジニアとして、Webアプリ開発から業務自動化まで幅広く活動しています。
+            「技術で人の課題を解決する」ことをモットーに、日々コードを書き続けています。
+          </p>
+          <p>
+            最近はAIツールの活用にも力を入れており、Claude Codeを使った開発効率化に取り組んでいます。
+            学んだことをブログで発信しながら、自分株式会社を経営中。
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num">5<small>年</small></span>
+              <span class="stat-label">エンジニア歴</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">20<small>+</small></span>
+              <span class="stat-label">開発実績</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">3<small>個</small></span>
+              <span class="stat-label">得意領域</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section section-dark" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">02</span>
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-icon">🌐</div>
+          <h4>Web開発</h4>
+          <p>HTML / CSS / JavaScript をベースに、フロントエンドからバックエンドまで対応。レスポンシブ対応も得意。</p>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 85%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🐍</div>
+          <h4>Python</h4>
+          <p>業務自動化・データ処理・スクレイピングなど。スクリプトからWebアプリまで幅広く活用。</p>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 80%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🤖</div>
+          <h4>AI活用</h4>
+          <p>Claude / ChatGPT / Claude Code を使った開発効率化。プロンプト設計から自動化まで。</p>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 80%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">☁️</div>
+          <h4>クラウド</h4>
+          <p>AWS・GCP を使ったインフラ構築・運用。サーバーレス構成やCI/CD環境の整備も対応。</p>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 70%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <h4>データ分析</h4>
+          <p>Google スプレッドシート・Apps Script による業務効率化。データの可視化・集計が得意。</p>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 75%"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">📝</div>
+          <h4>技術ブログ</h4>
+          <p>学んだ技術を言語化して発信。読者にわかりやすく伝えることを意識した記事作りを継続中。</p>
+          <div class="skill-bar"><div class="skill-fill" style="--pct: 75%"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Career -->
+  <section class="section" id="career">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">03</span>
+        <h2>Career</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024 〜 現在</div>
+          <div class="timeline-card">
+            <h4>フリーランスエンジニア</h4>
+            <p>Web開発・業務自動化・AIツール活用を軸に複数のクライアント案件を担当。技術ブログでの発信も継続中。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">20XX 〜 2024</div>
+          <div class="timeline-card">
+            <h4>○○会社 / エンジニア</h4>
+            <p>どんな仕事をしていたか簡単に書きます。成果や学びを1〜2文で。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">20XX 〜 20XX</div>
+          <div class="timeline-card">
+            <h4>○○会社 / ○○職</h4>
+            <p>経歴をここに追加してください。古い順から新しい順でもOK。</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">20XX</div>
+          <div class="timeline-card">
+            <h4>○○大学 卒業</h4>
+            <p>学部・専攻など。任意で記載してください。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section-dark" id="contact">
+    <div class="container contact-wrap">
+      <div class="section-header">
+        <span class="section-label">04</span>
+        <h2>Contact</h2>
+      </div>
+      <p class="contact-sub">お仕事のご依頼・コラボのご相談はこちらから</p>
+      <img src="images/contact-illustration.svg" alt="コンタクトイラスト" class="contact-illustration" />
+      <div class="social-links">
+        <a href="#" class="social-btn">𝕏 (Twitter)</a>
+        <a href="#" class="social-btn">📧 Email</a>
+        <a href="#" class="social-btn">📝 Blog</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 Yamada Taro. Built with ❤️ and Claude Code.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
