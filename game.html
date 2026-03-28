@@ -60,8 +60,8 @@
   <a href="index.html" id="back-btn">← Portfolio</a>
   <canvas id="c" width="800" height="450"></canvas>
   <div id="controls">
-    <div><span>A / D</span> 移動 &nbsp; <span>W</span> ジャンプ &nbsp; <span>S</span> しゃがむ</div>
-    <div><span>F</span> パンチ &nbsp; <span>G</span> キック &nbsp; <span>H</span> 必殺技(ゲージ満タン時)</div>
+    <div><span>← →</span> 移動 &nbsp; <span>↑</span> ジャンプ &nbsp; <span>↓</span> しゃがむ</div>
+    <div><span>D</span> パンチ &nbsp; <span>F</span> キック &nbsp; <span>V</span> 必殺技(ゲージ満タン時)</div>
   </div>
 </div>
 
@@ -73,7 +73,7 @@ const W = 800, H = 450, FLOOR = 355;
 const GRAVITY = 0.65, MOVE_SPEED = 4.5, JUMP_V = -14.5;
 const P_DMG = 9, K_DMG = 15, SP_DMG = 28;
 const P_DUR = 20, K_DUR = 26, SP_DUR = 44, HURT_DUR = 18;
-const ROUND_TIME = 60;
+const ROUND_TIME = 60 * 60; // 60秒 × 60fps
 const GS = { TITLE:0, START:1, FIGHT:2, END:3, GAMEOVER:4 };
 const FS = { IDLE:0, WALK:1, JUMP:2, CROUCH:3, PUNCH:4, KICK:5, SPECIAL:6, HURT:7, DEAD:8, WIN:9, BLOCK:10 };
 
@@ -221,8 +221,31 @@ function drawFighterSprite(f) {
     ctx.filter = 'brightness(4) saturate(0)';
   }
 
-  // Villain image naturally faces left → base flip = -1 so it faces right by default
   const baseFlip = isHero ? 1 : -1;
+  const effDir = f.facing * baseFlip; // 画面空間での前方向
+
+  // === 攻撃アニメーション（方向反転前に適用） ===
+  if (f.state === FS.PUNCH) {
+    const prog = Math.sin((1 - f.stateTimer / P_DUR) * Math.PI);
+    ctx.translate(effDir * prog * 20, prog * -8);
+    ctx.rotate(effDir * prog * 0.15);
+  } else if (f.state === FS.KICK) {
+    const prog = Math.sin((1 - f.stateTimer / K_DUR) * Math.PI);
+    ctx.translate(effDir * prog * 14, 0);
+    ctx.rotate(effDir * prog * 0.25);
+  } else if (f.state === FS.SPECIAL) {
+    const prog = Math.sin((1 - f.stateTimer / SP_DUR) * Math.PI);
+    const sc = 1 + prog * 0.13;
+    ctx.scale(sc, sc);
+    ctx.translate(effDir * prog * 28, prog * -5);
+  } else if (f.state === FS.HURT) {
+    ctx.translate(-effDir * 10, -6);
+    ctx.rotate(-effDir * 0.22);
+  } else if (f.state === FS.WIN) {
+    ctx.translate(0, Math.sin(f.animFrame * 0.12) * 5);
+  }
+
+  // 方向反転
   ctx.scale(f.facing * baseFlip, 1);
 
   // Special glow aura
@@ -243,17 +266,71 @@ function drawFighterSprite(f) {
     ctx.rotate(Math.PI / 2.3);
   }
 
-  // Hurt: lean back
-  if (f.state === FS.HURT) {
-    ctx.translate(-10, -8);
-    ctx.rotate(0.18);
-  }
-
   // Draw image — screen blend removes dark backgrounds
   ctx.globalCompositeOperation = 'screen';
   ctx.drawImage(img, sx, sy, sw, sh, -dw / 2, -dh, dw, dh);
   ctx.globalCompositeOperation = 'source-over';
 
+  // === 攻撃エフェクト（反転後のローカル座標で描画） ===
+  if (f.state === FS.PUNCH && f.isAttackActive) {
+    const prog = Math.sin((1 - f.stateTimer / P_DUR) * Math.PI);
+    drawImpactStar(ctx, dw * 0.44 + prog * 12, -dh * 0.68, 16 + prog * 10, '#ffdd00', '#ff8800');
+  }
+  if (f.state === FS.KICK && f.isAttackActive) {
+    const prog = Math.sin((1 - f.stateTimer / K_DUR) * Math.PI);
+    drawImpactStar(ctx, dw * 0.44 + prog * 14, -dh * 0.32, 18 + prog * 12, '#ff6600', '#ffcc00');
+  }
+  if (f.state === FS.SPECIAL) {
+    const prog = 1 - f.stateTimer / SP_DUR;
+    const pulse = Math.sin(prog * Math.PI * 5) * 7;
+    drawEnergyOrb(ctx, dw * 0.48 + prog * 32, -dh * 0.62, 22 + pulse, f.cfg.glow);
+  }
+
+  ctx.restore();
+}
+
+function drawImpactStar(ctx, x, y, size, c1, c2) {
+  ctx.save();
+  ctx.fillStyle = c1;
+  ctx.beginPath();
+  for (let i = 0; i < 8; i++) {
+    const a = (Math.PI * 2 * i) / 8 - Math.PI / 2;
+    const r = i % 2 === 0 ? size : size * 0.4;
+    i === 0 ? ctx.moveTo(x + Math.cos(a)*r, y + Math.sin(a)*r)
+            : ctx.lineTo(x + Math.cos(a)*r, y + Math.sin(a)*r);
+  }
+  ctx.closePath();
+  ctx.fill();
+  ctx.globalAlpha = 0.9;
+  ctx.fillStyle = '#fff';
+  ctx.beginPath();
+  ctx.arc(x, y, size * 0.3, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 0.7;
+  ctx.fillStyle = c2;
+  ctx.beginPath();
+  ctx.arc(x, y, size * 0.18, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawEnergyOrb(ctx, x, y, size, color) {
+  ctx.save();
+  ctx.globalAlpha = 0.3;
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, size * 1.9, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 0.88;
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(x, y, size, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.globalAlpha = 0.7;
+  ctx.fillStyle = '#fff';
+  ctx.beginPath();
+  ctx.arc(x - size * 0.3, y - size * 0.3, size * 0.38, 0, Math.PI * 2);
+  ctx.fill();
   ctx.restore();
 }
 
@@ -774,14 +851,14 @@ document.addEventListener('keyup',   e => { keys[e.code] = false; });
 
 function getPlayerInput() {
   return {
-    left:   keys['KeyA'],
-    right:  keys['KeyD'],
-    crouch: keys['KeyS'],
-    block:  keys['KeyS'], // S = crouch also acts as block
-    jump:   keys['KeyW'],
-    punch:  keys['KeyF'],
-    kick:   keys['KeyG'],
-    special: keys['KeyH'],
+    left:    keys['ArrowLeft'],
+    right:   keys['ArrowRight'],
+    crouch:  keys['ArrowDown'],
+    block:   keys['ArrowDown'],
+    jump:    keys['ArrowUp'],
+    punch:   keys['KeyD'],
+    kick:    keys['KeyF'],
+    special: keys['KeyV'],
   };
 }
 
